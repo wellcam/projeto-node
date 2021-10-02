@@ -3,9 +3,10 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json())
+app.use(express.static(__dirname));
 
-app.get("/", (req, res, next) =>{
-  res.send({message: 'Servidor Online', status:200});
+app.get("/", (req, res) =>{
+  res.sendFile(__dirname + "/web/index.html");
 });
 
 
