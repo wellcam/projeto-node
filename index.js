@@ -1,15 +1,13 @@
 const express = require("express");
 const PORT = 3000;
 const app = express();
+const routes = require('./routes');
 
 app.use(express.json())
 app.use(express.static(__dirname));
 
-app.get("/", (req, res) =>{
-  res.sendFile(__dirname + "/web/index.html");
-});
-
+routes(app);
 
 app.listen(PORT, () => {
-  console.log("Server online ", PORT);
+  console.log("################ Server online ", PORT, " ################");
 });
